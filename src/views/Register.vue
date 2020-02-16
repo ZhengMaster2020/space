@@ -2,9 +2,9 @@
   <div class="login">
     <div class="login_header">
       <img :src="logo" alt width="45px" style="float:left" />
-      <span class="title">用户注册</span>
+      <span class="title">{{ i18n.tc('userRegiater') }}</span>
       <span class="jump">
-        <span @click="jumpToIndex">首页</span> | <span @click="jumpToBack">返回</span>
+        <span @click="jumpToIndex">{{ i18n.tc('index') }}</span> | <span @click="jumpToBack">{{ i18n.tc('back') }}</span>
       </span>
     </div>
     <div class="contain">
@@ -18,24 +18,24 @@
         label-position="right"
         hide-required-asterisk
       >
-        <el-form-item label="昵称" prop="username">
+        <el-form-item :label="i18n.tc('name')" prop="username">
           <el-input v-model="loginForm.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="pass">
+        <el-form-item :label="i18n.tc('password')" prop="pass">
           <el-input type="password" v-model="loginForm.password" autocomplete="off"></el-input>
         </el-form-item>
-        <el-form-item label="确认密码" prop="checkPass">
+        <el-form-item :label="i18n.tc('confirmPassword')" prop="checkPass">
           <el-input type="password" v-model="loginForm.password2" autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="small">立即注册</el-button>
-          <el-button type="primary" size="small" @click="reset">重置</el-button>
+          <el-button type="primary" size="small">{{ i18n.tc('registerNow') }}</el-button>
+          <el-button type="primary" size="small" @click="reset">{{ i18n.tc('reset') }}</el-button>
         </el-form-item>
       <el-divider/>
       <div>
-        <span>已有账号？</span>
-        <el-button type="primary" size="small" @click="jumpToLogin">立即登录 </el-button>
-        <el-button type="text" size="small" @click="jumpToMore" style="float:right; color:#fff; font-size:15px;">更多帮助 >> </el-button>
+        <span style="margin-right: 10px">{{ i18n.tc('haveAccount') }}</span>
+        <el-button type="primary" size="small" @click="jumpToLogin">{{ i18n.tc('loginNnow') }} </el-button>
+        <el-button type="text" size="small" @click="jumpToMore" style="float:right; color:#fff; font-size:15px;">{{ i18n.tc('moreHelp') }} >> </el-button>
       </div>
       </el-form>
     </div>
@@ -43,10 +43,12 @@
 </template>
 
 <script>
+import i18n from '@/lang'
 import logo from '@/assets/logo.png'
 export default {
   data () {
     return {
+      i18n,
       loginForm: {
         password: '',
         password2: '',

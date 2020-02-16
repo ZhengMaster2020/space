@@ -3,39 +3,64 @@
   <div class="header-left">
     <img :src="logoUrl" alt="logo" class="logo">
     <div class="i18n">
-      <el-button type="primary" circle  @click="changeLange" class="i18n-btn">{{ lange }}</el-button>
+      <el-button type="primary" circle  @click="changeLanguage" class="i18n-btn">{{ lange }}</el-button>
     </div>
     <!-- <el-button icon="el-icon-search" circle></el-button> -->
     <el-input
-      placeholder="请输入内容"
+      :placeholder="i18n.tc('pleaseEnterContent')"
       suffix-icon="el-icon-search"
       v-model="searchValue"
       class="search-input"
     />
   </div>
   <div class="header-right">
-    <el-button type="text" @click="jumpToIndex">首页</el-button>
-    <el-button type="text" @click="jumpToLogin">登录</el-button>
-    <el-button type="text" @click="jumpToRegister">注册</el-button>
-    <el-button type="text" @click="jumpToCenter">个人中心</el-button>
-    <el-button type="text" @click="jumpToMall">周边推荐</el-button>
+    <el-button type="text" @click="jumpToIndex">{{ i18n.tc('index') }}</el-button>
+    <el-button type="text" @click="jumpToLogin">{{ i18n.tc('login') }}</el-button>
+    <el-button type="text" @click="jumpToRegister">{{ i18n.tc('register') }}</el-button>
+    <el-button type="text" @click="jumpToCenter">{{ i18n.tc('personalCenter') }}</el-button>
+    <el-button type="text" @click="jumpToMall">{{ i18n.tc('recommend') }}</el-button>
   </div>
 </div>
 </template>
 
 <script>
-import logoUrl from '@/assets/logo.png'
+import logoUrl from '@/assets/images/logo.png'
+import i18n from '@/lang'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   name: 'Header',
   data () {
     return {
       lange: 'EN',
-      searchValue: '',
-      logoUrl
+      searchValue: '', // 搜索框绑定值
+      logoUrl,
+      i18n, // 国际化插件
+      chooseLanguage: '' // 当前选择国际化语言
     }
   },
+  computed: {
+    ...mapGetters(['language'])
+  },
+  mounted () {
+    this.chooseLanguage = this.language
+  },
   methods: {
+    ...mapMutations({ setLanguage: 'SET_Language' }),
+    // 国际化-中英文切换
+    changeLanguage () {
+      if (this.lange === 'EN') {
+        this.lange = 'ZH'
+        this.chooseLanguage = 'zh_CN'
+        this.setLanguage(this.chooseLanguage)
+        i18n.locale = this.chooseLanguage
+      } else {
+        this.lange = 'EN'
+        this.chooseLanguage = 'en'
+        this.setLanguage(this.chooseLanguage)
+        i18n.locale = this.chooseLanguage
+      }
+    },
     jumpToMall () {
       this.$router.push('/mall')
     },
@@ -50,13 +75,6 @@ export default {
     },
     jumpToIndex () {
       this.$router.push('/')
-    },
-    changeLange () {
-      if (this.lange === 'EN') {
-        this.lange = 'ZH'
-      } else {
-        this.lange = 'EN'
-      }
     }
   }
 }
@@ -79,6 +97,7 @@ export default {
   margin-left: 10px;
   width: 55px;
   height: 50px;
+  border-radius: 50%;
 }
 .header {
   overflow: hidden;

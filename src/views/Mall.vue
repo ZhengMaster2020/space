@@ -3,14 +3,14 @@
     <div class="header">
       <img :src="logo" alt="logo" />
       <div class="mall-header">
-        <span @click="jumpToIndex">首页</span> |
-        <span @click=jumpToBack>返回</span> |
-        <span>我的收藏(0)</span>
+        <span @click="jumpToIndex">{{ i18n.tc('index') }}</span> |
+        <span @click=jumpToBack>{{ i18n.tc('back') }}</span> |
+        <span>{{ i18n.tc('collection') }}(0)</span>
       </div>
-      <div class="title">周边推荐</div>
+      <div class="title">{{ i18n.tc('recommend') }}</div>
     </div>
     <el-divider content-position="center">
-      <el-button type="warning" round class="sale-btn">周边热卖</el-button>
+      <el-button type="warning" round class="sale-btn">{{ i18n.tc('hotSale') }}</el-button>
     </el-divider>
     <div class="shop">
       <el-row :gutter="10" style="padding: 20px;">
@@ -41,12 +41,14 @@
 </template>
 
 <script>
+import i18n from '@/lang'
 import logo from '@/assets/logo.png'
 import src from '@/assets/images/shop00.jpg'
 
 export default {
   data () {
     return {
+      i18n,
       logo,
       src
     }

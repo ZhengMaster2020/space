@@ -1,24 +1,24 @@
 <template>
   <div class="register">
     <div class="login_header">
-      <span @click="jumpIndex">首页</span> | <span @click="jumpBack">返回</span>
+      <span @click="jumpIndex">{{ i18n.tc('index') }}</span> | <span @click="jumpBack">{{ i18n.tc('back') }}</span>
     </div>
-    <div class="title">欢迎您</div>
+    <div class="title">{{ i18n.tc('welcome') }}</div>
     <div class="login_form">
       <el-form v-model="loginForm" label-position="left" class="form">
-        <el-form-item label="用户名" prop="username">
+        <el-form-item :label="i18n.tc('username')" prop="username">
           <el-input v-model="loginForm.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password">
+        <el-form-item :label="i18n.tc('passsword')" prop="password">
           <el-input v-model="loginForm.password"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" round style="width:100%; margin-top:15px;">立即登录</el-button>
+          <el-button type="primary" round style="width:100%; margin-top:15px;">{{ i18n.tc('loginNnow') }}</el-button>
         </el-form-item>
         <el-divider/>
         <div style="text-align:center">
-          <span>还没有账号？</span>
-          <el-button @click="jumpToRegister" round type="info" style="margin-left:30px;">立即注册</el-button>
+          <span>{{ i18n.tc('noAccount') }}</span>
+          <el-button @click="jumpToRegister" round type="info" style="margin-left:30px;">{{ i18n.tc('registerNow') }}</el-button>
         </div>
       </el-form>
     </div>
@@ -26,9 +26,12 @@
 </template>
 
 <script>
+import i18n from '@/lang'
+
 export default {
   data () {
     return {
+      i18n,
       loginForm: {
         username: '',
         password: ''

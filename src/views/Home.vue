@@ -26,7 +26,7 @@
         </el-col>
       </el-row>
       <div class="more" @click="moreStory">
-        <span>加载更多</span>
+        <span>{{ i18n.tc('loadMore') }}</span>
       </div>
     </div>
     <Footer/>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import i18n from '@/lang'
 import { Carousel, CarouselItem } from 'element-ui'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -58,6 +59,7 @@ export default {
   },
   data () {
     return {
+      i18n,
       newsBg0,
       ImgSrcList: [img0, img1, img2, img3, img4],
       ContentCategories: [{

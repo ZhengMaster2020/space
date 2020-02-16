@@ -1,19 +1,21 @@
 <template>
   <div class="footer">
-    <p class="des">Copyright @2019-2020 hanzi.com, All Right Reserved 使用本网站及接受航资用户协议。版权所有：航资</p>
+    <p class="des">Copyright @2019-2020 hanzi.com, All Right Reserved {{ i18n.tc('agreement') }}</p>
     <p class="contact">
-      版权所有：航资。
-      <span class="konw-more" @click="knowMore">了解更多</span>
-      <span class="contact-us" @click="knowMore">联系我们</span>
+      {{ i18n.tc('copyRight') }}
+      <span class="konw-more" @click="knowMore">{{ i18n.tc('knowMore') }}</span>
+      <span class="contact-us" @click="knowMore">{{ i18n.tc('contactUs') }}</span>
     </p>
   </div>
 </template>
 
 <script>
+import i18n from '@/lang'
 export default {
   name: 'Footer',
   data () {
     return {
+      i18n
     }
   },
   methods: {
@@ -39,6 +41,7 @@ export default {
 .footer .contact {
   margin: 10px;
   margin-left: 20px;
+  margin-top: 15px;
 }
 .footer .konw-more {
   cursor: pointer;
