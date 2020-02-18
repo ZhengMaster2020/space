@@ -1,21 +1,14 @@
 import VueRouter from 'vue-router'
 
-import Home from '@/views/Home'
-import Login from '@/views/Login'
-import Register from '@/views/Register'
-import PersonalCenter from '@/views/Personal'
-import Mall from '@/views/Mall'
-import More from '@/views/KnowMore'
-import Detail from '@/views/Detail'
-
 const routes = [
-  { path: '/', component: Home },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register },
-  { path: '/center', component: PersonalCenter },
-  { path: '/mall', component: Mall },
-  { path: '/more', component: More },
-  { path: '/Detail', component: Detail }
+  { path: '/', component: () => import('@/views/Home') },
+  { path: '/login', component: () => import('@/views/Login') },
+  { path: '/register', component: () => import('@/views/Register') },
+  { path: '/center', component: () => import('@/views/Personal') },
+  { path: '/mall', component: () => import('@/views/Mall') },
+  { path: '/more', component: () => import('@/views/KnowMore') },
+  { path: '/detail', component: () => import('@/views/Detail') },
+  { path: '/search', component: () => import('@/views/SearchResult') }
 ]
 
 export default new VueRouter({

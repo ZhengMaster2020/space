@@ -32,7 +32,6 @@ export default {
   /* height: 60px; */
   overflow: hidden;
   color: #fff;
-  margin-bottom: 20px;
 }
 .footer .des {
   margin: 10px 0;

@@ -41,7 +41,7 @@
                   </div>
                   <li class="news-link" @click="jumpToDetail">1. 火星大气损失有新解 能更好评估红色星球宜居性,为建深空中转站 dddddddsdddddddddddd，科学家开了哪些脑洞</li>
                 </el-tooltip>
-                <img :src="newsBg0" alt="新闻图片" class="other-news-img"/>
+                <!-- <img :src="newsBg0" alt="新闻图片" class="other-news-img"/> -->
               </ul>
             </div>
           </el-col>
@@ -54,14 +54,14 @@
                   </div>
                   <li class="news-link" @click="jumpToDetail">{{item}}. ssss火星大气损失有新解sdddddddddddddddddddddd 能更好评估红色星球宜居性,为建深空中转站，科学家开了哪些脑洞</li>
                 </el-tooltip>
-                <img :src="newsBg0" alt="新闻图片" class="other-news-img"/>
+                <!-- <img :src="newsBg0" alt="新闻图片" class="other-news-img"/> -->
               </ul>
             </div>
           </el-col>
         </el-row>
       </div>
     </div>
-    <Footer/>
+    <Footer class="footer"/>
   </div>
 </template>
 
@@ -118,6 +118,9 @@ export default {
 </script>
 
 <style scoped>
+.footer{
+  margin-bottom: 20px;
+}
 .other-row{
   position: relative;
   padding: 0 10px;
@@ -144,9 +147,6 @@ export default {
   line-height: 25px;
   font-size: 13px;
   color: #303133;
-}
-.other-content-detail {
-  /* background: #5555555c; */
 }
 .other-title {
   position: absolute;

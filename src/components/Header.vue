@@ -8,10 +8,13 @@
     <!-- <el-button icon="el-icon-search" circle></el-button> -->
     <el-input
       :placeholder="i18n.tc('pleaseEnterContent')"
-      suffix-icon="el-icon-search"
       v-model="searchValue"
       class="search-input"
-    />
+    ><i
+      class="el-icon-search search-icon"
+      slot="suffix"
+      @click="searchContent">
+    </i></el-input>
   </div>
   <div class="header-right">
     <el-button type="text" @click="jumpToIndex">{{ i18n.tc('index') }}</el-button>
@@ -47,6 +50,17 @@ export default {
   },
   methods: {
     ...mapMutations({ setLanguage: 'SET_Language' }),
+    searchContent () {
+      if (!this.searchValue) {
+        return this.$message({
+          message: '搜索内容不能为空',
+          center: true,
+          type: 'error',
+          duration: 1500
+        })
+      }
+      this.$router.push('/search')
+    },
     // 国际化-中英文切换
     changeLanguage () {
       if (this.lange === 'EN') {
@@ -81,6 +95,7 @@ export default {
 </script>
 
 <style scoped>
+
 .i18n-btn {
   width: 40px;
   height: 40px;
@@ -121,10 +136,18 @@ export default {
   right: 20px;
   transform: translateY(-50%)
 }
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
 .search-input {
   width: 300px;
   margin: 0 20px;
   border-radius: 25px;
+  position: relative;
 }
 </style>
 <style>
