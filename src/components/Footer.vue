@@ -4,7 +4,7 @@
     <p class="contact">
       {{ i18n.tc('copyRight') }}
       <span class="konw-more" @click="knowMore">{{ i18n.tc('knowMore') }}</span>
-      <span class="contact-us" @click="knowMore">{{ i18n.tc('contactUs') }}</span>
+      <span class="contact-us" @click="jumpToFeedback">{{ i18n.tc('contactUs') }}</span>
     </p>
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
   methods: {
     knowMore () {
       this.$router.push('/more')
+    },
+    jumpToFeedback () {
+      this.$router.push('/feedback')
     }
   }
 }

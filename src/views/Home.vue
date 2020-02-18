@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header />
-    <el-carousel :interval="4000" direction="vertical" height="400px">
+    <el-carousel :interval="4000" height="400px">
       <el-carousel-item class="carousel-item" v-for="(item, key) in ImgSrcList" :key="key">
         <h3 class="medium">
           <img :src="item" alt="picture" />

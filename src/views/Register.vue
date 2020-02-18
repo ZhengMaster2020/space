@@ -35,7 +35,7 @@
       <div>
         <span style="margin-right: 10px">{{ i18n.tc('haveAccount') }}</span>
         <el-button type="primary" size="small" @click="jumpToLogin">{{ i18n.tc('loginNnow') }} </el-button>
-        <el-button type="text" size="small" @click="jumpToMore" style="float:right; color:#fff; font-size:15px;">{{ i18n.tc('moreHelp') }} >> </el-button>
+        <el-button type="text" size="small" @click="jumpToFeedback" style="float:right; color:#fff; font-size:15px;">{{ i18n.tc('moreHelp') }} >> </el-button>
       </div>
       </el-form>
     </div>
@@ -63,6 +63,9 @@ export default {
       this.loginForm.password = ''
       this.loginForm.password2 = ''
       this.loginForm.username = ''
+    },
+    jumpToFeedback () {
+      this.$router.push('/feedback')
     },
     jumpToBack () {
       this.$router.back()

@@ -8,7 +8,8 @@ const routes = [
   { path: '/mall', component: () => import('@/views/Mall') },
   { path: '/more', component: () => import('@/views/KnowMore') },
   { path: '/detail', component: () => import('@/views/Detail') },
-  { path: '/search', component: () => import('@/views/SearchResult') }
+  { path: '/search', component: () => import('@/views/SearchResult') },
+  { path: '/feedback', component: () => import('@/views/Feedback') }
 ]
 
 export default new VueRouter({

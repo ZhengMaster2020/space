@@ -1,7 +1,7 @@
 <template>
 <div class="header">
   <div class="header-left">
-    <img :src="logoUrl" alt="logo" class="logo">
+    <img :src="logoUrl" alt="logo" class="logo" @click="jumpToIndex">
     <div class="i18n">
       <el-button type="primary" circle  @click="changeLanguage" class="i18n-btn">{{ lange }}</el-button>
     </div>
